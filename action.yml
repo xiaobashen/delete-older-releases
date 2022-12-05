@@ -1,0 +1,25 @@
+name: Delete Older Releases
+description: delete older releases of any repo
+author: dev-drprasad
+
+branding:
+  color: red
+  icon: delete
+
+inputs:
+  keep_latest:
+    description: how many latest releases to keep
+    required: true
+  repo:
+    description: repo name in the form of <owner>/<repoName>
+    required: false
+  delete_tags:
+    description: whether to delete tags associated to older releases or not
+    required: false
+  delete_tag_pattern:
+    description: part of the tag name. Example, if you want to delete 0.0.1-beta and 0.0.2-beta but not 0.0.1 then set this to just "beta". If not set then it will target all releases.
+    required: false
+
+runs:
+  using: "node16"
+  main: "index.js"
